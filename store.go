@@ -1,12 +1,12 @@
 package main
 
 import (
-	EComApp "github.com/codedv8/go-ecom-app"
+	ecomapp "github.com/codedv8/go-ecom-app"
 )
 
 // Store - The main struct for this module
 type Store struct {
-	App     *EComApp.Application
+	App     *ecomapp.Application
 	Message string
 }
 
@@ -15,7 +15,7 @@ var storeList []Store
 // Exports
 
 // SysInit - Pre initialization of this module
-func SysInit(app *EComApp.Application) error {
+func SysInit(app *ecomapp.Application) error {
 	store := &Store{
 		App:     app,
 		Message: "Welcome to the CMS plugin",
@@ -28,7 +28,7 @@ func SysInit(app *EComApp.Application) error {
 }
 
 // Init - Initialization of this module
-func Init(app *EComApp.Application) error {
+func Init(app *ecomapp.Application) error {
 	for _, store := range storeList {
 		store.Init(app)
 	}
@@ -37,7 +37,7 @@ func Init(app *EComApp.Application) error {
 }
 
 // Done - Shut down of this module
-func Done(app *EComApp.Application) error {
+func Done(app *ecomapp.Application) error {
 	for _, store := range storeList {
 		store.Done(app)
 	}

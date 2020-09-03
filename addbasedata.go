@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	EComStructs "github.com/codedv8/go-ecom-structs"
+	ecomstructs "github.com/codedv8/go-ecom-structs"
 )
 
 // Page - Temporary struct for adding test data
@@ -34,7 +34,7 @@ type Brand struct {
 // AddBaseData - A function that adds basic test data to the database
 func (store *Store) AddBaseData(payload interface{}) (bool, error) {
 	switch c := payload.(type) {
-	case *EComStructs.RouterWildcard:
+	case *ecomstructs.RouterWildcard:
 		path := c.Context.Request.URL.Path
 		if path == "/addbasedata" {
 			log.Println("Adding base data. (removing old data first)")

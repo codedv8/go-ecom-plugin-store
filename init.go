@@ -3,14 +3,14 @@ package main
 import (
 	"context"
 
-	EComApp "github.com/codedv8/go-ecom-app"
+	ecomapp "github.com/codedv8/go-ecom-app"
 	"github.com/gin-gonic/gin"
 	_ "github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
 // SysInit - Pre initialization of this object
-func (store *Store) SysInit(app *EComApp.Application) {
+func (store *Store) SysInit(app *ecomapp.Application) {
 }
 
 // SEOURL - A generic struct with the key SEOURL to be able to read seourls from the database
@@ -19,7 +19,7 @@ type SEOURL struct {
 }
 
 // Init - Initialization of this object
-func (store *Store) Init(app *EComApp.Application) {
+func (store *Store) Init(app *ecomapp.Application) {
 	// app.URIHandler.AddURI("/cart", store.Cart)
 	app.URIHandler.AddURI("/__addtocart", store.AddToCart)
 	app.URIHandler.AddURI("/__removefromcart", store.RemoveFromCart)
