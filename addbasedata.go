@@ -2,30 +2,36 @@ package main
 
 import (
 	"context"
-	EComStructs "github.com/codedv8/go-ecom-structs"
 	"log"
+
+	EComStructs "github.com/codedv8/go-ecom-structs"
 )
 
+// Page - Temporary struct for adding test data
 type Page struct {
 	Title  string
 	SEOURL string
 }
 
+// Product - Temporary struct for adding test data
 type Product struct {
 	Title  string
 	SEOURL string
 }
 
+// Category - Temporary struct for adding test data
 type Category struct {
 	Title  string
 	SEOURL string
 }
 
+// Brand - Temporary struct for adding test data
 type Brand struct {
 	Title  string
 	SEOURL string
 }
 
+// AddBaseData - A function that adds basic test data to the database
 func (store *Store) AddBaseData(payload interface{}) (bool, error) {
 	switch c := payload.(type) {
 	case *EComStructs.RouterWildcard:

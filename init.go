@@ -2,19 +2,23 @@ package main
 
 import (
 	"context"
+
 	EComApp "github.com/codedv8/go-ecom-app"
 	"github.com/gin-gonic/gin"
 	_ "github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
+// SysInit - Pre initialization of this object
 func (store *Store) SysInit(app *EComApp.Application) {
 }
 
+// SEOURL - A generic struct with the key SEOURL to be able to read seourls from the database
 type SEOURL struct {
 	SEOURL string `bson:"seourl"`
 }
 
+// Init - Initialization of this object
 func (store *Store) Init(app *EComApp.Application) {
 	// app.URIHandler.AddURI("/cart", store.Cart)
 	app.URIHandler.AddURI("/__addtocart", store.AddToCart)
@@ -64,36 +68,43 @@ func (store *Store) Init(app *EComApp.Application) {
 	}
 }
 
+// Cart - Handling requests to cart
 func (store *Store) Cart(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You have requested the cart.")
 	return true, nil
 }
 
+// AddToCart - Handling adding items to the cart
 func (store *Store) AddToCart(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying to add items to the cart.")
 	return true, nil
 }
 
+// RemoveFromCart - Handling removing items from the cart
 func (store *Store) RemoveFromCart(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying to remove items from the cart.")
 	return true, nil
 }
 
+// EmptyCart - Handling emptying the the cart
 func (store *Store) EmptyCart(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying empty the cart.")
 	return true, nil
 }
 
+// HandleProduct - Handling a product
 func (store *Store) HandleProduct(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying access a product.")
 	return true, nil
 }
 
+// HandleCategory - Handling a category
 func (store *Store) HandleCategory(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying access a category.")
 	return true, nil
 }
 
+// HandleBrand - Handling a brand
 func (store *Store) HandleBrand(ctx *gin.Context) (bool, error) {
 	ctx.String(200, "You are trying access a brand.")
 	return true, nil

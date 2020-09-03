@@ -4,6 +4,7 @@ import (
 	EComApp "github.com/codedv8/go-ecom-app"
 )
 
+// Store - The main struct for this module
 type Store struct {
 	App     *EComApp.Application
 	Message string
@@ -12,6 +13,8 @@ type Store struct {
 var storeList []Store
 
 // Exports
+
+// SysInit - Pre initialization of this module
 func SysInit(app *EComApp.Application) error {
 	store := &Store{
 		App:     app,
@@ -24,6 +27,7 @@ func SysInit(app *EComApp.Application) error {
 	return nil
 }
 
+// Init - Initialization of this module
 func Init(app *EComApp.Application) error {
 	for _, store := range storeList {
 		store.Init(app)
@@ -32,6 +36,7 @@ func Init(app *EComApp.Application) error {
 	return nil
 }
 
+// Done - Shut down of this module
 func Done(app *EComApp.Application) error {
 	for _, store := range storeList {
 		store.Done(app)
